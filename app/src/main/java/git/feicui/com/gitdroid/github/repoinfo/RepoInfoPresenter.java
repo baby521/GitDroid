@@ -23,8 +23,14 @@ import retrofit2.Response;
  * 邮箱：yuanchao@feicuiedu.com
  */
 public class RepoInfoPresenter {
-    // 视图接口
+    // 主要完成视图
     public interface RepoInfoView {
+        /**
+         * 1.显示进度条
+         * 2.隐藏进度条
+         * 3.显示信息
+         * 4.加载数据，显示数据
+         */
         void showProgrss();
 
         void hideProgress();
@@ -43,6 +49,7 @@ public class RepoInfoPresenter {
     }
 
     public void getReadme(Repo repo) {
+        //显示加载进度条
         repoInfoView.showProgrss();
 
         String login = repo.getOwner().getLogin();
@@ -57,9 +64,9 @@ public class RepoInfoPresenter {
     private Callback<RepoContentResult> repoContentCallback = new Callback<RepoContentResult>() {
         @Override public void onResponse(Call<RepoContentResult> call, Response<RepoContentResult> response) {
             String content = response.body().getContent();
-            // BASE64解码
+            // BASE64解码操作
             byte[] data = Base64.decode(content, Base64.DEFAULT);
-            // 根据data获取到markdown（也就是readme文件）的HTML格式文件
+            // 根据data获取到markdown（也就是readme文件）的HTML格式文件显示出来
             MediaType mediaType = MediaType.parse("text/plain");
             RequestBody body = RequestBody.create(mediaType, data);
             if (mdhtmlCall != null) mdhtmlCall.cancel();
@@ -69,6 +76,7 @@ public class RepoInfoPresenter {
 
         @Override public void onFailure(Call<RepoContentResult> call, Throwable t) {
             repoInfoView.hideProgress();
+            //显示错误信息
             repoInfoView.showMessage(t.getMessage());
         }
     };
@@ -76,6 +84,7 @@ public class RepoInfoPresenter {
     private Callback<ResponseBody> mdhtmlCallback = new Callback<ResponseBody>() {
         @Override public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
             repoInfoView.hideProgress();
+            //数据已经获取出来了
             try {
                 String htmlContent = response.body().string();
                 repoInfoView.setData(htmlContent);

@@ -53,8 +53,8 @@ public class RepoInfoActivity extends AppCompatActivity implements RepoInfoPrese
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityUtils = new ActivityUtils(this);
+        //设置View布局的时候就会触发我们的onContentChanged
         setContentView(R.layout.activity_repo_info);
-        //
         presenter = new RepoInfoPresenter(this);
         presenter.getReadme(repo);
     }
@@ -95,6 +95,7 @@ public class RepoInfoActivity extends AppCompatActivity implements RepoInfoPrese
     }
 
     @Override public void setData(String htmlContent) {
+        //加载html字符串数据
         webView.loadData(htmlContent, "text/html", "UTF-8");
     }
 }

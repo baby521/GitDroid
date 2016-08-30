@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class RepoListPresenter {
     // 视图的接口
     private RepoListView repoListView;
-    private int nextPage = 0;
+    private int nextPage = 1;
     private Language language;
 
     private Call<RepoResult> repoCall;
@@ -35,7 +35,7 @@ public class RepoListPresenter {
     // 下拉刷新处理
     public void refresh() {
         // 隐藏loadmore
-        repoListView.hideLoadView();
+//        repoListView.hideLoadView();
         repoListView.showContent();
         nextPage = 1; // 永远刷新最新数据
         repoCall = GithubClient.getInstance().searchRepo(
@@ -52,11 +52,11 @@ public class RepoListPresenter {
                 , nextPage);
         repoCall.enqueue(loadMoreCallback);
     }
-
+    //
     private final Callback<RepoResult> loadMoreCallback = new Callback<RepoResult>(){
 
         @Override public void onResponse(Call<RepoResult> call, Response<RepoResult> response) {
-            repoListView.hideLoadView();
+//            repoListView.hideLoadView();
             // 得到响应结果
             RepoResult reposResult = response.body();
             if (reposResult == null) {
@@ -75,18 +75,20 @@ public class RepoListPresenter {
             repoListView.showMessage("repoCallback onFailure" + t.getMessage());
         }
     };
-
+    //异步获取仓库
     private final Callback<RepoResult> repoCallback = new Callback<RepoResult>() {
         @Override public void onResponse(Call<RepoResult> call, Response<RepoResult> response) {
             // 视图停止刷新
             repoListView.stopRefre();
             // 得到响应结果
             RepoResult reposResult = response.body();
+            //结果为空null
             if (reposResult == null) {
-                repoListView.showError();
+                repoListView.showError("结果为空");
                 return;
             }
             // 当前搜索的语言,没有仓库
+            //结果不为空0/有数据
             if (reposResult.getTotalCount() <= 0) {
 
                 repoListView.refreshData(null);
@@ -97,10 +99,10 @@ public class RepoListPresenter {
             List<Repo> repoList = reposResult.getRepoList();
 
             repoListView.refreshData(repoList);
-            // 下拉刷新成功(1), 下一面则更新为2
+            // 下拉刷新第一页数据完成,下一次进行加载页面则从第二页开始
             nextPage = 2;
         }
-
+        //失败的处理
         @Override public void onFailure(Call<RepoResult> call, Throwable t) {
             // 视图停止刷新
             repoListView.stopRefre();

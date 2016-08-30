@@ -11,16 +11,13 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 
-import java.net.URI;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import git.feicui.com.gitdroid.MainActivity;
 import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.commons.ActivityUtils;
-import git.feicui.com.gitdroid.github.MainActivity;
 import git.feicui.com.gitdroid.github.network.GithubApi;
 import pl.droidsonroids.gif.GifImageView;
-import retrofit2.http.Url;
 
 
 /**

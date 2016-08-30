@@ -1,3 +1,5 @@
+package git.feicui.com.gitdroid;
+
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -17,8 +20,10 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import git.feicui.com.gitdroid.R;
+import git.feicui.com.gitdroid.commons.ActivityUtils;
 import git.feicui.com.gitdroid.github.hotrepo.HotRepoFragment;
 import git.feicui.com.gitdroid.github.hotuser.HotUserFragment;
+import git.feicui.com.gitdroid.github.login.LoginActivity;
 import git.feicui.com.gitdroid.github.login.model.UserRepo;
 
 
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mBtnLogin;
     private ImageView mIvIcon;
+    private ActivityUtils activityUtils;
 
 
     private HotRepoFragment hotRepoFragment;
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onContentChanged();
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        activityUtils = new ActivityUtils(this);
 
         navigation.setNavigationItemSelectedListener(itemSelectedListener);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerlayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -58,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
         mBtnLogin = ButterKnife.findById(navigation.getHeaderView(0), R.id.btnLogin);
         mIvIcon = ButterKnife.findById(navigation.getHeaderView(0), R.id.ivIcon);
 
+
+        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activityUtils.startActivity(LoginActivity.class);
+                finish();
+            }
+        });
 
         hotRepoFragment = new HotRepoFragment();
         replaceFragment(hotRepoFragment);
@@ -131,4 +146,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
+
+
 }

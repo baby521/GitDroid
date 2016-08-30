@@ -14,7 +14,7 @@ public interface RepoListPtrView {
     void showContent();
 
 //    显示加载错误的视图
-    void showError();
+    void showError(String msg);
 
 //    显示没有数据的视图
     void showEmpty();

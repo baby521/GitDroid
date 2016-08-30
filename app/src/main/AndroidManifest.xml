@@ -10,7 +10,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".github.MainActivity" />
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +19,7 @@
         </activity>
         <activity android:name=".github.login.LoginActivity"></activity>
         <activity android:name=".github.repoinfo.RepoInfoActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
 
     </application>
 

@@ -46,7 +46,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
     @BindView(R.id.errorView)
     TextView errorView;
 
-    private static String KEY_LANGUAGE = "key_language";
+    private static final String KEY_LANGUAGE = "key_language";
 
     public static RepoListFragment getInstance(Language language){
         RepoListFragment fragment = new RepoListFragment();
@@ -81,7 +81,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
         ButterKnife.bind(this, view);
         adapter = new RepoListAdapter();
         lvRepos.setAdapter(adapter);
-//        presenter = new RepoListPresenter(RepoListFragment.this.getLanuage());
+        presenter = new RepoListPresenter(this,getLanuage());
 
         lvRepos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -100,7 +100,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
             ptrFrameLayout.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-//                    ptrFrameLayout.autoRefresh();
+                    ptrFrameLayout.autoRefresh();
 
                 }
             },200);
@@ -113,7 +113,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
             @Override
             public void onLoadMore() {
                 //上拉加载操作
-//                presenter.loadMore();
+                presenter.loadMore();
             }
 
             @Override
@@ -141,7 +141,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
                 //做刷新操作
-//                presenter.refresh();
+                presenter.refresh();
             }
         });
 
@@ -167,7 +167,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
 
     //    显示加载错误信息
     @Override
-    public void showError() {
+    public void showError(String msg) {
         ptrFrameLayout.setVisibility(View.GONE);
         emptyView.setVisibility(View.GONE);
         errorView.setVisibility(View.VISIBLE);
@@ -184,7 +184,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
 //    显示刷新的新的数据
     @Override
     public void refreshData(List<Repo> list) {
-        adapter.clear();
+//        adapter.clear();
         adapter.addAll(list);
         adapter.notifyDataSetChanged();
     }

@@ -39,13 +39,23 @@ public interface GithubApi {
     @Headers("Accept: application/json")
     @FormUrlEncoded
     @POST("https://github.com/login/oauth/access_token")
-    Call<AccessTokenResult> getOAuthToken(@Field("client_id") String clientId, @Field("client_secret") String clientSecret, @Field("code") String code);
+    Call<AccessTokenResult> getOAuthToken(@Field("client_id")
+    String clientId, @Field("client_secret")
+    String clientSecret, @Field("code") String code);
 
     @GET("user")
     Call<User> getUserInfo();
 
+    /**
+     * 获取仓库列表的请求api
+     * @param q   查询的参数--体现为语言
+     * @param pageId   查询页数默认从 1 开始
+     * @return
+     */
+
     @GET("search/repositories")
-    Call<RepoResult> searchRepo(@Query("q") String q, @Query("page") int pageId);
+    Call<RepoResult> searchRepo(@Query("q")
+    String q, @Query("page") int pageId);
 
     /***
      * 获取readme
@@ -64,7 +74,7 @@ public interface GithubApi {
      * @param body 请求体,内容来自getReadme后的RepoContentResult
      */
     @Headers({
-            "Content-Type:text/plain"
+            "Content-Type:text/plain"//纯文本的形式
     })
     @POST("/markdown/raw")
     Call<ResponseBody> markDown(@Body RequestBody body);

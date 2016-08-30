@@ -36,7 +36,7 @@ public class Language implements Serializable{
     }
 
     public static List<Language> languages;
-
+    //对本地的Json字符串进行读取和解析
     public static List<Language> getDefaultLanguage(Context context){
         if (languages!=null){
             return languages;

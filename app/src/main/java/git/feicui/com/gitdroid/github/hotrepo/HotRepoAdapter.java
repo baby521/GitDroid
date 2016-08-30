@@ -29,7 +29,7 @@ public class HotRepoAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return languages.size();
+        return languages == null?0:languages.size();
     }
 
     @Override
