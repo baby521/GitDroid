@@ -61,7 +61,7 @@ public class RepoListAdapter extends BaseAdapter{
             convertView.setTag(new ViewHolder(convertView));
         }
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
-        Repo repo = getItem(position);// 当前item选的"数据"
+        Repo repo = mData.get(position);// 当前item选的"数据"
         viewHolder.tvRepoName.setText(repo.getFullName());
         viewHolder.tvRepoInfo.setText(repo.getDescription());
         viewHolder.tvRepoStars.setText(repo.getStartCount() + "");

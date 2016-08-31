@@ -78,7 +78,7 @@ public class HotUserFragment extends Fragment implements HotUserPresenter.HotUse
             }, 200);
         }
     }
-
+    //加载的基本配置
     private void initLoadMore() {
         footerView = new FooterView(getContext());
         Mugen.with(lvUser, new MugenCallbacks() {
@@ -99,7 +99,7 @@ public class HotUserFragment extends Fragment implements HotUserPresenter.HotUse
             }
         }).start();
     }
-
+    //刷新的基本配置
     private void initPullToRefresh() {
         ptrFrameLayout.setLastUpdateTimeRelateObject(this);
         ptrFrameLayout.setDurationToCloseHeader(150);
@@ -164,6 +164,13 @@ public class HotUserFragment extends Fragment implements HotUserPresenter.HotUse
     @Override
     public void showMessage(String msg) {
         activityUtils.showToast(msg);
+    }
+
+    @Override
+    public void showEmptyView() {
+        ptrFrameLayout.setVisibility(View.GONE);
+        emptyView.setVisibility(View.VISIBLE);
+        errorView.setVisibility(View.GONE);
     }
 
     @Override

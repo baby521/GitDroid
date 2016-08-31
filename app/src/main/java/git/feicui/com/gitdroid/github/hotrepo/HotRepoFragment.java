@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 import git.feicui.com.gitdroid.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 仓库列表，读取本地语言
  */
 public class HotRepoFragment extends Fragment {
 

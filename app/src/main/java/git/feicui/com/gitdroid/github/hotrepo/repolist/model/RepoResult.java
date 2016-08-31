@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/8/19 0019.
+ * 仓库列表数据填充完成
  */
 public class RepoResult {
 
@@ -33,4 +33,5 @@ public class RepoResult {
     public List<Repo> getRepoList() {
         return repoList;
     }
+
 }

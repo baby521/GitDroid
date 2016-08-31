@@ -19,7 +19,7 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
- * Created by Administrator on 2016/8/18 0018.
+ * 开发者功能实现
  */
 public class GithubClient implements GithubApi{
 

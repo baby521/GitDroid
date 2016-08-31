@@ -5,11 +5,14 @@ import android.support.v4.app.FragmentActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import git.feicui.com.gitdroid.MainActivity;
 import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.commons.ActivityUtils;
-import git.feicui.com.gitdroid.github.MainActivity;
 import git.feicui.com.gitdroid.github.login.LoginActivity;
 
+/**
+ * 提交Splash页面ViewPager的基本实现
+ */
 public class SplashActivity extends FragmentActivity {
 
     private ActivityUtils activityUtils;

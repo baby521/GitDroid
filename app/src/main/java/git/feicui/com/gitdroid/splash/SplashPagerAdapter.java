@@ -11,7 +11,7 @@ import git.feicui.com.gitdroid.splash.pager.Pager2;
 
 
 /**
- * Created by gqq on 16/8/15.
+ * ViewPager设置颜色的改变
  */
 public class SplashPagerAdapter extends PagerAdapter {
 

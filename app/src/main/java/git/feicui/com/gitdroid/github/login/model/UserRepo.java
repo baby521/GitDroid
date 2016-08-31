@@ -1,7 +1,7 @@
 package git.feicui.com.gitdroid.github.login.model;
 
 /**
- * Created by Administrator on 2016/8/18 0018.
+ * 修复登录加载
  */
 public class UserRepo {
 

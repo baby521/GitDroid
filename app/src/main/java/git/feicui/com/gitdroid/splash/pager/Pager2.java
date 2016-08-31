@@ -14,6 +14,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import git.feicui.com.gitdroid.R;
 
+/**
+ * ViewPager页面动画效果展示
+ *
+ */
 public class Pager2 extends FrameLayout {
 
     @BindView(R.id.ivBubble1)ImageView ivBubble1;

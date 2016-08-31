@@ -11,19 +11,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 
-import java.net.URI;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import git.feicui.com.gitdroid.MainActivity;
 import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.commons.ActivityUtils;
-import git.feicui.com.gitdroid.github.MainActivity;
 import git.feicui.com.gitdroid.github.network.GithubApi;
 import pl.droidsonroids.gif.GifImageView;
-import retrofit2.http.Url;
 
 
 /**
+ *      登录视图及主页面信息更改
+ *
  * 授权登录流程
  * <p/>
  * 1.WebView 加载一个授权Url

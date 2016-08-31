@@ -1,7 +1,7 @@
 package git.feicui.com.gitdroid.github.login;
 
 /**
- * Created by Administrator on 2016/8/18 0018.
+ * 登录视图及主页面信息更改
  */
 public interface LoginView {
 

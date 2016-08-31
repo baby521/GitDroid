@@ -3,7 +3,7 @@ package git.feicui.com.gitdroid.github.login.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Administrator on 2016/8/18 0018.
+ * 授权登陆获得code
  */
 public class AccessTokenResult {
     /**

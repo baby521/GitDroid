@@ -74,7 +74,7 @@ public final class LogUtils {
         }
     }
 
-    public static void d(final String msg) {
+    public static void d(final String msg, String s) {
         if (isDebug) {
             android.util.Log.d(TAG, addThreadInfo(msg));
         }

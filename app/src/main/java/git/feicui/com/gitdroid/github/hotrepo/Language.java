@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by gqq on 16/8/15.
+ * 仓库列表数据填充完成
  */
 public class Language implements Serializable{
     private String path;
@@ -36,7 +36,7 @@ public class Language implements Serializable{
     }
 
     public static List<Language> languages;
-
+    //对本地的Json字符串进行读取和解析
     public static List<Language> getDefaultLanguage(Context context){
         if (languages!=null){
             return languages;

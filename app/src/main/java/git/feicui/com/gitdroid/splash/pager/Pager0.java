@@ -9,8 +9,8 @@ import git.feicui.com.gitdroid.R;
 
 
 /**
- * 作者：yuanchao on 2016/7/26 0026 10:53
- * 邮箱：yuanchao@feicuiedu.com
+ * ViewPager页面动画效果展示
+ * 提交Splash页面ViewPager的基本实现
  */
 public class Pager0 extends FrameLayout {
 

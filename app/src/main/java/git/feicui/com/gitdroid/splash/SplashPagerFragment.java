@@ -21,6 +21,7 @@ import git.feicui.com.gitdroid.splash.pager.Pager2;
 import me.relex.circleindicator.CircleIndicator;
 
 /**
+ * 主页面基本搭建
  * Splash页面的动画
  */
 public class SplashPagerFragment extends Fragment {

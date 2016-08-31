@@ -11,7 +11,7 @@ import java.util.List;
 import git.feicui.com.gitdroid.github.hotrepo.repolist.RepoListFragment;
 
 /**
- * Created by gqq on 16/8/15.
+ * 仓库列表数据填充完成
  */
 public class HotRepoAdapter extends FragmentPagerAdapter{
 
@@ -29,7 +29,7 @@ public class HotRepoAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return languages.size();
+        return languages == null?0:languages.size();
     }
 
     @Override

@@ -8,8 +8,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 /**
- * 作者：yuanchao on 2016/7/29 0029 17:33
- * 邮箱：yuanchao@feicuiedu.com
+ * 图片网络加载的配置
  */
 public class GitDroidApplication extends Application{
 

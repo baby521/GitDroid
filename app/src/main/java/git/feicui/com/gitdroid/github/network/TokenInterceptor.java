@@ -11,8 +11,7 @@ import okhttp3.Response;
 /**
  * Token拦截器
  * <p/>
- * 作者：yuanchao on 2016/7/29 0029 16:06
- * 邮箱：yuanchao@feicuiedu.com
+ *          修复登录加载
  */
 public class TokenInterceptor implements Interceptor {
 

@@ -18,7 +18,7 @@ import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.github.login.model.User;
 
 /**
- * 作者：yuanchao on 2016/8/1 0001 11:28
+ * 作者：yuanchao on 2016/8/31 0001 11:28
  * 邮箱：yuanchao@feicuiedu.com
  */
 public class HotUserAdapter extends BaseAdapter {

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import git.feicui.com.gitdroid.github.login.model.User;
 
 /**
- * Created by Administrator on 2016/8/19 0019.
+ * 仓库详情显示完成
  */
 public class Repo implements Serializable{
 

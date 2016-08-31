@@ -3,6 +3,7 @@ package git.feicui.com.gitdroid.github.login;
 import android.util.Log;
 
 
+import git.feicui.com.gitdroid.MainActivity;
 import git.feicui.com.gitdroid.github.login.model.AccessTokenResult;
 import git.feicui.com.gitdroid.github.login.model.User;
 import git.feicui.com.gitdroid.github.login.model.UserRepo;

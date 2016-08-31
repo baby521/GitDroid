@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
+import git.feicui.com.gitdroid.commons.LogUtils;
 import git.feicui.com.gitdroid.github.login.model.User;
 import git.feicui.com.gitdroid.github.network.GithubClient;
 import retrofit2.Call;
@@ -13,21 +14,27 @@ import retrofit2.Response;
 
 /**
  * 热门开发者业务(视图业务及数据处理业务)
- * 作者：yuanchao on 2016/8/2 0002 10:33
+ * 作者：yuanchao on 2016/8/31 0002 10:33
  * 邮箱：yuanchao@feicuiedu.com
  */
 public class HotUserPresenter {
 
-    /**
-     * 热门开发者业务视图接口
-     */
     public interface HotUsersView {
+        /**
+         * 刷新视图的分析
+         * 1.重要的一点：得到网络请求来的数据
+         * 2.显示刷新的视图
+         * 3.停止刷新
+         * 4.显示错误的信息
+         * 5.空的数据，没有数据显示空的页面
+         */
         /**
          * 在执行业务时将触发，用来显示一些提示信息
          */
         void showMessage(String msg);
         // --------------------------------------------------------
-
+       //显示空的界面
+        void showEmptyView();
         /**
          * 在开始refresh业务时，将触发，用来显示下拉刷新时的内容视图
          */
@@ -74,7 +81,7 @@ public class HotUserPresenter {
     private HotUsersView hotUsersView;
 
     private Call<HotUserResult> usersCall;
-    private int nextPage = 0;
+    private int nextPage = 1;
 
     public HotUserPresenter(@NonNull HotUsersView hotUsersView) {
         this.hotUsersView = hotUsersView;
@@ -106,11 +113,13 @@ public class HotUserPresenter {
             if(response.isSuccessful()){
                 HotUserResult hotUserResult = response.body();
                 if (hotUserResult == null) {
+                    //显示一个空的视图，提示信息
                     hotUsersView.showErrorView("结果为空!");
                     return;
                 }
                 // 取出搜索到的所有用户
                 List<User> userList = hotUserResult.getRepoList();
+                LogUtils.d("userList",hotUserResult.getTotalCount()+"");
                 hotUsersView.refreshData(userList);
                 // 下拉刷新成功(1), 下一面则更新为2
                 nextPage = 2;
