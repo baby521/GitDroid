@@ -53,6 +53,11 @@ public class HotUserAdapter extends BaseAdapter {
 
     @Override public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
+
+            /**
+             *
+             * fadfsdfsdgfsdghdhrsjefhrjg 
+             */
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             convertView = inflater.inflate(R.layout.layout_item_user, parent, false);
             convertView.setTag(new ViewHolder(convertView));
