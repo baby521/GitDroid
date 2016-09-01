@@ -43,7 +43,7 @@ public class RepoGroupDao {
     /**
      * 对于仓库类别表进行添加和更新
      */
-    private void createOrUpdate(List<RepoGroup> list){
+    public void createOrUpdate(List<RepoGroup> list){
         for (RepoGroup repo:list){
             createOrUpdate(repo);
         }

@@ -21,6 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.commons.ActivityUtils;
+import git.feicui.com.gitdroid.favorite.FavoriteFragment;
 import git.feicui.com.gitdroid.github.hotrepo.HotRepoFragment;
 import git.feicui.com.gitdroid.github.hotuser.HotUserFragment;
 import git.feicui.com.gitdroid.github.login.LoginActivity;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private HotRepoFragment hotRepoFragment;
     private HotUserFragment hotUserFragment;
+    private FavoriteFragment favoriteFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,9 +130,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
 //                我的收藏
-                case R.id.arsenal_my_repo: {
+                case R.id.arsenal_my_repo:
+                    if(favoriteFragment==null){
+                        favoriteFragment = new FavoriteFragment();
+                        }
+                    if(!favoriteFragment.isAdded()){
+                            replaceFragment(favoriteFragment);
+                    }
 
-                }
                 break;
 
 //                每日干货

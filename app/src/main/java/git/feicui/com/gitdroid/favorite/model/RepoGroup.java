@@ -46,6 +46,7 @@ public class RepoGroup {
     }
 
     private static List<RepoGroup> repoGroupList;
+
     public static List<RepoGroup> getDefaultGroup(Context context){
         if (repoGroupList!=null){
             return repoGroupList;
