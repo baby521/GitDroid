@@ -111,7 +111,7 @@ public class RepoListFragment extends Fragment implements RepoListView {
                 Repo repo = adapter.getItem(position);
                 LocalRepo localRepo = RepoConverter.convert(repo);
                 dbHelp = DBHelp.getInstance(getContext());
-                LocalRepoDao localRepoDao = new LocalRepoDao(dbHelp);
+                localRepoDao = new LocalRepoDao(dbHelp);
                 List<LocalRepo> localRepos = localRepoDao.queryAll();//收藏里的数据
                 for(int i = 0;i<localRepos.size();i++){
                     LocalRepo local = localRepos.get(i);

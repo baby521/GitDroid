@@ -73,7 +73,7 @@ public class FavoriteFragment extends Fragment implements PopupMenu.OnMenuItemCl
 
         //默认显示的是全部的数据
         setData(R.id.repo_group_all);
-
+        currentRepoGroupId = R.id.repo_group_all;
 //        Toast.makeText(getContext(),"本地仓库数据数量： "+localRepoDao.queryAll().size(),Toast.LENGTH_SHORT).show();
           //注册上下文菜单，表明我们的菜单作用到谁身上--listview上
         registerForContextMenu(listView);
@@ -175,7 +175,7 @@ public class FavoriteFragment extends Fragment implements PopupMenu.OnMenuItemCl
         //点击的是删除
         if(id==R.id.delete){
             //删除作用的仓库
-            localRepoDao.delete(currentLocalRepo);//这个里面使我们操作的仓库
+            localRepoDao.delete(currentLocalRepo);//这个里面是我们操作的仓库
             setData(currentRepoGroupId);
             return true;
         }
