@@ -69,6 +69,8 @@ public class RepoListFragment extends Fragment implements RepoListView {
     private RepoListAdapter adapter;
     private FooterView footerView;
     private ActivityUtils activityUtils;
+    private LocalRepoDao localRepoDao;
+    private DBHelp dbHelp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -108,9 +110,18 @@ public class RepoListFragment extends Fragment implements RepoListView {
 
                 Repo repo = adapter.getItem(position);
                 LocalRepo localRepo = RepoConverter.convert(repo);
+                dbHelp = DBHelp.getInstance(getContext());
+                LocalRepoDao localRepoDao = new LocalRepoDao(dbHelp);
+                List<LocalRepo> localRepos = localRepoDao.queryAll();//收藏里的数据
+                for(int i = 0;i<localRepos.size();i++){
+                    LocalRepo local = localRepos.get(i);
+                    if(local.getName().equals(localRepo.getName())){//localRepo为点击的数据
+                        activityUtils.showToast("收藏过了");
+                        return false;
+                    }
+                }
                 new LocalRepoDao(DBHelp.getInstance(getContext())).createOrUpdate(localRepo);
                 activityUtils.showToast("收藏成功");
-
                 return false;
             }
         });
