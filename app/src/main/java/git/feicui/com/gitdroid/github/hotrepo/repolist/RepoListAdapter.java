@@ -64,8 +64,8 @@ public class RepoListAdapter extends BaseAdapter{
         Repo repo = mData.get(position);// 当前item选的"数据"
         viewHolder.tvRepoName.setText(repo.getFullName());
         viewHolder.tvRepoInfo.setText(repo.getDescription());
-        viewHolder.tvRepoStars.setText(repo.getStartCount() + "");
-        ImageLoader.getInstance().displayImage(repo.getOwner().getAvatarUrl(), viewHolder.ivIcon);
+        viewHolder.tvRepoStars.setText(repo.getStarCount() + "");
+        ImageLoader.getInstance().displayImage(repo.getOwner().getAvatar(), viewHolder.ivIcon);
         return convertView;
     }
 

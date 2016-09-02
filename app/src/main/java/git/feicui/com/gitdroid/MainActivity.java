@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             mBtnLogin.setText(R.string.switch_account);
             getSupportActionBar().setTitle(UserRepo.getUser().getName());
 
-            ImageLoader.getInstance().displayImage(UserRepo.getUser().getAvatarUrl(), mIvIcon);
+            ImageLoader.getInstance().displayImage(UserRepo.getUser().getAvatar(), mIvIcon);
         }
     }
 

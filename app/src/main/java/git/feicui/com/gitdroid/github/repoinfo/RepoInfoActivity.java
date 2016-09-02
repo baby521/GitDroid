@@ -71,8 +71,8 @@ public class RepoInfoActivity extends AppCompatActivity implements RepoInfoPrese
         // 设置仓库信息
         tvRepoName.setText(repo.getFullName());
         tvRepoInfo.setText(repo.getDescription());
-        tvRepoStars.setText(String.format("start: %d  fork: %d", repo.getStartCount(), repo.getForksCount()));
-        ImageLoader.getInstance().displayImage(repo.getOwner().getAvatarUrl(), ivIcon);
+        tvRepoStars.setText(String.format("start: %d  fork: %d", repo.getStarCount(), repo.getForksCount()));
+        ImageLoader.getInstance().displayImage(repo.getOwner().getAvatar(), ivIcon);
     }
 
     @Override public boolean onOptionsItemSelected(MenuItem item) {

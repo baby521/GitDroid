@@ -17,41 +17,54 @@ public class User implements Serializable{
      * name : monalisa octocat
      */
 
+    // 登录所用的账号
     private String login;
-    private int id;
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    // 用户名
     private String name;
+    // id
+    private int id;
+
+    // 用户头像路径
+    @SerializedName("avatar_url")
+    private String avatar;
+
+    // 用户仓库路径
+    @SerializedName("repos_url")
+    private String repos;
+
+    // 用户追随者路径
+    @SerializedName("followers_url")
+    private String followers;
 
     public String getLogin() {
         return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public String getRepos() {
+        return repos;
+    }
+
+    public String getFollowers() {
+        return followers;
+    }
+
+    @Override public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", avatar='" + avatar + '\'' +
+                '}';
     }
 }

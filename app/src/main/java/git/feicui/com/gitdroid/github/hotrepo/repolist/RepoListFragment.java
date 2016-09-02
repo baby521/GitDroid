@@ -23,6 +23,10 @@ import butterknife.ButterKnife;
 import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.commons.ActivityUtils;
 import git.feicui.com.gitdroid.components.FooterView;
+import git.feicui.com.gitdroid.favorite.dao.DBHelp;
+import git.feicui.com.gitdroid.favorite.dao.LocalRepoDao;
+import git.feicui.com.gitdroid.favorite.model.LocalRepo;
+import git.feicui.com.gitdroid.favorite.model.RepoConverter;
 import git.feicui.com.gitdroid.github.hotrepo.Language;
 import git.feicui.com.gitdroid.github.hotrepo.repolist.model.Repo;
 import git.feicui.com.gitdroid.github.hotrepo.repolist.view.RepoListView;
@@ -86,10 +90,31 @@ public class RepoListFragment extends Fragment implements RepoListView {
         lvRepos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //点击某一条跳转到详情页
                 Repo repo = adapter.getItem(position);
                 RepoInfoActivity.open(getContext(), repo);
             }
         });
+
+        lvRepos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                /**
+                 * 1.获取到我们长按的ListView的数据
+                 * 2.将数据添加到本地仓库数据库表中
+                 * 3.Dao里面需要传入的是LocalRepo
+                 * 4.Repo  LocalRepo   要做的：将Repo转换为LocalRepo
+                 */
+
+                Repo repo = adapter.getItem(position);
+                LocalRepo localRepo = RepoConverter.convert(repo);
+                new LocalRepoDao(DBHelp.getInstance(getContext())).createOrUpdate(localRepo);
+                activityUtils.showToast("收藏成功");
+
+                return false;
+            }
+        });
+
 
         //下拉刷新
         initPullToRefresh();

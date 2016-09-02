@@ -65,7 +65,7 @@ public class HotUserAdapter extends BaseAdapter {
         ViewHolder viewHolder = (ViewHolder) convertView.getTag();
         User user = getItem(position); // 当前item选的"数据"
         viewHolder.tvLoginName.setText(user.getLogin());
-        ImageLoader.getInstance().displayImage(user.getAvatarUrl(), viewHolder.ivIcon);
+        ImageLoader.getInstance().displayImage(user.getAvatar(), viewHolder.ivIcon);
         return convertView;
     }
 

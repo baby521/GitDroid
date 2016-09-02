@@ -119,7 +119,7 @@ public class HotUserPresenter {
                 }
                 // 取出搜索到的所有用户
                 List<User> userList = hotUserResult.getRepoList();
-                LogUtils.d("userList",hotUserResult.getTotalCount()+"");
+//                LogUtils.d("userList",hotUserResult.getTotalCount()+"");
                 hotUsersView.refreshData(userList);
                 // 下拉刷新成功(1), 下一面则更新为2
                 nextPage = 2;

@@ -66,7 +66,7 @@ public class RepoGroupDao {
      * @param id
      * @return
      */
-    public RepoGroup queryForId(Long id){
+    public RepoGroup queryForId(long id){
         try {
             return dao.queryForId(id);
         } catch (SQLException e) {
