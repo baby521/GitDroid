@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import git.feicui.com.gitdroid.R;
 import git.feicui.com.gitdroid.commons.ActivityUtils;
 import git.feicui.com.gitdroid.favorite.FavoriteFragment;
+import git.feicui.com.gitdroid.gank.GankFragment;
 import git.feicui.com.gitdroid.github.hotrepo.HotRepoFragment;
 import git.feicui.com.gitdroid.github.hotuser.HotUserFragment;
 import git.feicui.com.gitdroid.github.login.LoginActivity;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private HotRepoFragment hotRepoFragment;
     private HotUserFragment hotUserFragment;
     private FavoriteFragment favoriteFragment;
+    private GankFragment gankFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,9 +143,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
 //                每日干货
-                case R.id.tips_daily: {
+                case R.id.tips_daily:
+                    if(gankFragment==null){
+                        gankFragment = new GankFragment();
+                    }
+                    if(!gankFragment.isAdded()){
+                            replaceFragment(gankFragment);
+                    }
 
-                }
                 break;
 
             }

@@ -1,4 +1,4 @@
-package git.feicui.com.gitdroid.gank.model.network;
+package git.feicui.com.gitdroid.gank.network;
 
 import git.feicui.com.gitdroid.commons.LoggingInterceptor;
 import git.feicui.com.gitdroid.gank.model.GankResult;

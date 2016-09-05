@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import git.feicui.com.gitdroid.gank.model.GankItem;
+
 /**
  * Created by Administrator on 16-9-2.
  */
