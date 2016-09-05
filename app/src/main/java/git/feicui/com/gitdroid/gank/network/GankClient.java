@@ -46,7 +46,7 @@ public class GankClient implements GankApi{
     }
 
     @Override
-    public Call<GankResult> getDailyData(@Path("yaer") int year, @Path("month") int month, @Path("day") int day) {
+    public Call<GankResult> getDailyData(@Path("year") int year, @Path("month") int month, @Path("day") int day) {
         return gankApi.getDailyData(year, month, day);
     }
 }
